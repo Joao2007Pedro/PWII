@@ -15,7 +15,7 @@ const server = http.createServer((req, res) => {
     const cidade = urlInfo.query.cidade;
     const genero = urlInfo.query.genero;
 
-    if (!name) {
+    if (req.url === "/") {
         fs.readFile('index.html', (err, data) => {
             if (err) {
                 res.writeHead(500, { "Content-Type": "text/plain" });
@@ -27,8 +27,21 @@ const server = http.createServer((req, res) => {
                 res.end();
             }
         });
-    } else {
-
+    } 
+    else if (req.url === "/resposta.html") {
+        fs.readFile('resposta.html', (err, data) => {
+            if (err) {
+                res.writeHead(404, { "Content-Type": "text/plain" });
+                res.write("404 - Página não encontrada");
+                res.end();
+            } else {
+                res.writeHead(200, { "Content-Type": "text/html" });
+                res.write(data);
+                res.end();
+            }
+        });
+    }
+    else if (name) {
         const dataToWrite = `${name}\r\n${sobrenome}\r\n${genero}\r\n${telefone}\r\n${email}\r\n${pais}\r\n${estado}\r\n${cidade}\r\n`;
 
         fs.appendFile("arquivo.txt", dataToWrite, (err) => {
@@ -42,54 +55,14 @@ const server = http.createServer((req, res) => {
                 });
                 res.end();
             }
-    });
-    }
-    if (sobrenome) {
-        const sobrenomeNewLine = sobrenome + "\r\n";
-        fs.appendFile("arquivo.txt", sobrenomeNewLine, (err) => {
         });
+    } else {
+        res.writeHead(404, { "Content-Type": "text/plain" });
+        res.write("404 - Página não encontrada");
+        res.end();
     }
+});
 
-    if (genero) {
-        const generoNewLine = "Gênero: " + genero + "\r\n";
-        fs.appendFile("arquivo.txt", generoNewLine, (err) => {
-        });
-    }
-
-    if (telefone) {
-        const telefoneNewLine = telefone + "\r\n";
-        fs.appendFile("arquivo.txt", telefoneNewLine, (err) => {
-        });
-    }
-
-    if (email) {
-        const emailNewLine = email + "\r\n";
-        fs.appendFile("arquivo.txt", emailNewLine, (err) => {
-        });
-    }
-    
-    if (pais) {
-        const paisNewLine = pais + "\r\n";
-        fs.appendFile("arquivo.txt", paisNewLine, (err) => {
-        });
-    }
-
-    if (estado) {
-        const estadoNewLine = estado + "\r\n";
-        fs.appendFile("arquivo.txt", estadoNewLine, (err) => {
-        });
-    }
-
-    if (cidade) {
-        const cidadeNewLine = cidade + "\r\n";
-        fs.appendFile("arquivo.txt", cidadeNewLine, (err) => {
-        });
-    }
-})
-
-server.listen(port, ()=> {
-    console.log(`Servidor rodando na porta: ${3000}`)
-})
-server.listen(port, ()=> {
-    console.log(`Servidor rodando na porta: ${3000}`)
-})
+server.listen(port, () => {
+    console.log(`Servidor rodando na porta: ${port}`);
+});

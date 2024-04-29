@@ -5,28 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escrevendo Arquivo</title>
 </head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <body>
-    <h1> Formulário </h1>
-    <form action="/" method="get">
-        <p>Nome</p>
-        <input type="text" name="name" placeholder="Digite o seu nome">
-        <p>Sobrenome</p>
-        <input type="text" name="sobrenome" placeholder="Digite o seu sobrenome">
-        <p>Genêro</p>
-        <input type="radio" name="genero" value="masculino"> Masculino
-        <input type="radio" name="genero" value="feminino"> Feminino
-        <input type="radio" name="genero" value="outro"> Outro
-        <p>Telefone</p>
-        <input type="tel" name="telefone" placeholder="Digite o seu telefone">
-        <p>E-mail</p>
-        <input type="email" name="email" placeholder="Digite o seu e-mail">
-        <p>País</p>
-        <input type="text" name="pais" placeholder="Digite seu pais ">
-        <p>Estado</p>
-        <input type="text" name="estado" placeholder="Digite seu estado ">
-        <p>Cidade</p>
-        <input type="text" name="cidade" placeholder="Digite sua cidade ">
-        <input type="submit" value="Enviar">
-    </form>    
+    <body class="bg-light">
+        <div class="container mt-5">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Formulário</h1>
+                    <form action="/" method="get">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" name="name" class="form-control" id="name" placeholder="Digite o seu nome">
+                        </div>
+                        <div class="form-group">
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="text" name="sobrenome" class="form-control" id="sobrenome" placeholder="Digite o seu sobrenome">
+                        </div>
+                        <div class="form-group">
+                            <label>Gênero</label><br>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="genero" value="masculino" class="form-check-input" id="masculino">
+                                <label class="form-check-label" for="masculino">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="genero" value="feminino" class="form-check-input" id="feminino">
+                                <label class="form-check-label" for="feminino">Feminino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="genero" value="outro" class="form-check-input" id="outro">
+                                <label class="form-check-label" for="outro">Outro</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="Digite o seu telefone">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Digite o seu e-mail">
+                        </div>
+                        <div class="form-group">
+                            <label for="pais">País</label>
+                            <input type="text" name="pais" class="form-control" id="pais" placeholder="Digite seu país">
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado</label>
+                            <input type="text" name="estado" class="form-control" id="estado" placeholder="Digite seu estado">
+                        </div>
+                        <div class="form-group">
+                            <label for="cidade">Cidade</label>
+                            <input type="text" name="cidade" class="form-control" id="cidade" placeholder="Digite sua cidade">
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>    
 </body>
 </html>

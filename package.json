@@ -1,0 +1,20 @@
+{
+    "name": "site_noticias",
+    "version": "1.0.0",
+    "description": "Site de notícias com páginas HTML estáticas",
+    "main": "index.js",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "keywords": [
+        "notícias",
+        "site",
+        "express"
+    ],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.19.2"
+    }
+}

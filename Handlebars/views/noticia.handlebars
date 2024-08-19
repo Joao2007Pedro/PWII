@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{titulo}}</title>
+    <link href="/css/style.css" rel="stylesheet">
+</head>
+<body>
+    <h1>{{titulo}}</h1>
+    <img src="{{imagem}}" alt="{{titulo}}">
+    <div class="news-content">
+        {{conteudo}}
+    </div>
+    <h2>Notícias Relacionadas</h2>
+    <div class="related-news">
+        {{#each noticiasRelacionadas}}
+            <div class="related-news-item">
+                <a href="/noticia/{{id}}">
+                    <img src="{{imagem}}" alt="{{titulo}}">
+                    <p>{{titulo}}</p>
+                </a>
+            </div>
+        {{/each}}
+    </div>
+</body>
+</html>

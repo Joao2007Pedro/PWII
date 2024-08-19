@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Site de Notícias</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <h1>Últimas Notícias</h1>
+  {{#each noticias}}
+    <div class="noticia">
+      <h2>{{titulo}}</h2>
+      <img src="/imagens/{{imagem}}" alt="{{titulo}}">
+      <p>{{resumo}}</p>
+    </div>
+  {{/each}}
+</body>
+</html>

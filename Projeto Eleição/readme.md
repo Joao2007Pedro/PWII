@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://github.com/ralflima/nodejs_mysql/blob/main/logo.png" width="30%">
+  <img src="https://github.com/Joao2007Pedro/PWII/blob/main/Projeto%20Elei%C3%A7%C3%A3o/logo.png" width="30%">
   <h1 style="border-bottom:none">Node.js e MySQL</h1>
   <p>Instrutor: Everson Willian Pereira Bacelli</p>
   

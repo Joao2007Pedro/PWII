@@ -10,6 +10,9 @@ const { engine } = require('express-handlebars');
 // Importar módulo Mysql
 const mysql = require('mysql2');
 
+// File Systems
+const fs = require('fs')
+
 // App 
 const app = express();
 
@@ -21,6 +24,9 @@ app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
 
 // Adicionar css
 app.use('/css', express.static('./css'))
+
+// Referenciar a pasta de imagens
+app.use('/imagens', express.static('./imagens'));
 
 // Configuração do express-handlebars
 app.engine('handlebars', engine());
@@ -46,9 +52,15 @@ conexao.connect(function(erro) {
     console.log('Conexão efetuada com sucesso');
 });
 
-// Rota Principal
-app.get('/', function (req, res) {
-    res.render('formulario');
+// Rota principal
+app.get('/', function(req, res){
+    // SQL
+    let sql = 'SELECT * FROM candidatos';
+
+    // Executar comando SQL
+    conexao.query(sql, function(erro, retorno){
+        res.render('formulario', {candidatos:retorno});
+    });
 });
 
 // Rota de Cadastro 
@@ -74,6 +86,47 @@ app.post('/cadastrar', function(req, res) {
     // Retornar para a rota principal
     res.redirect('/');
 });
+
+// Rota para remover produtos
+app.get('/remover/:idCandidato&:imagem', function(req, res){
+    //SQL
+    let sql = `DELETE FROM candidatos WHERE idCandidato = ${req.params.idCandidato}`;
+
+    // Executar o comando SQL
+    conexao.query(sql, function(erro, retorno){
+        // Caso falhe o comando SQL
+        if(erro) throw erro;
+
+        //Caso o comando SQL funcione
+        fs.unlink(__dirname+'/imagem/'+req.params.imagem, (erro_imagem)=>{
+            console.log('Falha ao remover a imagem');
+        });
+    });
+
+    // Redirecionamento
+    res.redirect('/');
+});
+
+// Rota para redirecionar para o formulario de alteração/edição
+app.get('/formularioEditar/:idCandidato', function(req, res){
+    
+    // SQL
+    let sql = `SELECT * FROM candidatos WHERE idCandidato = ${req.params.idCandidato}`;
+
+    // Executar comando SQL
+    conexao.query(sql, function(erro, retorno){
+        //Caso haja falha no comando SQL
+        if(erro) throw erro;
+
+        // Caso consiga executar o comando SQL 
+        res.render('formularioEditar', {candidatos:retorno[0]});
+    });
+});
+
+// Rota para editar Candidatos
+app.post('./editar', function(req, res){
+    
+})
 
 //Servidor 
 app.listen(8080);

@@ -1,0 +1,21 @@
+<main>
+    <link rel="stylesheet" href="../css/voto.css">
+    <div class="container">
+        <h1>Votação</h1>
+        <div class="row">
+            {{#each candidatos}}
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="card">
+                        <img src="../imagens/{{imagem}}" alt="Foto de {{nome}}" class="card-img">
+                        <div class="textos">
+                            <p class="nome">{{nome}}</p>
+                            <p class="numero">Número: {{numero}}</p>
+                        </div>
+                        <a href="/votar/{{idCandidato}}" class="btn btn-success">Votar</a>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+        <a href="/index/" class="btn btn-warning btn-voltar">Voltar</a>
+    </div>
+</main>

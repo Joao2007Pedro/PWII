@@ -1,0 +1,107 @@
+/* Estilo base */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* Centralização do conteúdo principal */
+  .container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  /* Estilo do título */
+  h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Card dos candidatos */
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 20px;
+    text-align: center;
+    padding: 15px;
+  }
+  
+  .card-img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .textos {
+    padding: 10px 0;
+  }
+  
+  .nome {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .numero {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  /* Botão de votar */
+  .btn {
+    display: inline-block;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .btn-success {
+    background-color: #28a745;
+  }
+  
+  .btn-success:hover {
+    background-color: #1e7e34;
+  }
+  
+  /* Botão de voltar */
+  .btn-voltar {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+  }
+  
+  .btn-voltar:hover {
+    background-color: #e0a800;
+  }
+
+  /* Ajuste das imagens */
+.card-img {
+    width: 100%; /* Ocupar toda a largura do card */
+    height: 200px; /* Altura fixa */
+    object-fit: cover; /* Ajusta a imagem para caber no tamanho sem distorcer */
+    border-bottom: 1px solid #ddd;
+  }
+  
+  
